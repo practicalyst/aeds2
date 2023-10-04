@@ -13,7 +13,7 @@ typedef struct jogador {
 }jogador;
 
 void imprimir(jogador j){
-    printf("[%d ## %s ## %d ## %d ## %s ## %d ## %s ## %s]\n", j.id, j.nome, j.altura, j.peso, j.universidade,j.anoNascimento ,j.cidadeNascimento, j.estadoNascimento);
+    printf("[%d ## %s ## %d ## %d ## %d ## %s ## %s ## %s]\n", j.id, j.nome, j.altura, j.peso, j.anoNascimento, j.universidade ,j.cidadeNascimento, j.estadoNascimento);
 }
 
 void newJogador(jogador * j, int id, char * nome, int altura, int peso, char * universidade, int anoNascimento, char * cidadeNascimento, char * estadoNascimento){    
