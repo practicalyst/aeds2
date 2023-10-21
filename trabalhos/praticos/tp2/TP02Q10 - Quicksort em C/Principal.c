@@ -120,7 +120,7 @@ void sortBolha(jogador * j[], int tamanho, int * cmp, int * mov){
 }
 
 // implementação do particionamento de lomuto
-int particionamento(jogador * j[], int esquerda, int direita){
+int particionamento(jogador * j[], int esquerda, int direita, int * cmp, int * mov){
     jogador * pivot = j[esquerda];
     jogador * aux = NULL;
 
@@ -133,11 +133,16 @@ int particionamento(jogador * j[], int esquerda, int direita){
             aux = j[i];
             j[i] = j[z];
             j[z] = aux;
+
+            *(cmp)++;
+            *(mov) = *(mov) + 3;    
         }
     }
     aux = j[esquerda];
     j[esquerda] = j[i];
     j[i] = aux;
+
+    *(mov) = *(mov) + 3;   
     
     return i;
 }  
@@ -146,7 +151,7 @@ int particionamento(jogador * j[], int esquerda, int direita){
 void sortQuicksort(jogador * j[], int esquerda, int direita, int * cmp, int * mov){
     
     if(esquerda < direita){
-        int indicePivot = particionamento(j, esquerda, direita);
+        int indicePivot = particionamento(j, esquerda, direita, cmp, mov);
         sortQuicksort(j, esquerda, indicePivot - 1, cmp, mov);
         sortQuicksort(j, indicePivot + 1, direita, cmp, mov);
     }
